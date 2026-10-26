@@ -1,17 +1,37 @@
-# Quartz v5
+# Cyber Security Notes
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+My cybersecurity study notes, published with [Quartz v5](https://quartz.jzhao.xyz).
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
+**Live site:** https://rahulgotrekiya.github.io/cybersec-notes
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+| | |
+|---|---|
+| `content/` | the notes (copied from my Obsidian vault — **not** edited here) |
+| `quartz.config.yaml` | site config |
+| `publish` | re-copy the vault and push |
+| `.github/workflows/deploy.yml` | builds and deploys on every push to `v5` |
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+## Publishing a change
 
-## Sponsors
+Notes are written in Obsidian. `content/` is a copy, so after editing:
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+```bash
+./publish "what changed"
+```
+
+That rsyncs the vault into `content/`, commits, and pushes. Actions does the rest.
+
+## Local preview
+
+```bash
+npm ci
+npx quartz build --serve
+```
+
+## Structure
+
+- `00-MOCs/` — maps of content, the navigation hubs
+- `01-Concepts/` — core concepts
+- `02-Quick-References/` — cheatsheets
+- `03-Projects/` — labs and practicals
+- `04-Tools/` — tool notes

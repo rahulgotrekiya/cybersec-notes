@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Re-copy the vault into content/ and push. GitHub Actions builds and deploys.
+# Usage: ./publish            or    ./publish "commit message"
+set -euo pipefail
+
+VAULT="/mnt/work/personal/Obsidian Vault/Study/Cyber Security"
+
+[ -d "$VAULT" ] || { echo "vault not found: $VAULT" >&2; exit 1; }
+
+cd "$(dirname "$0")"
+rsync -a --delete "$VAULT/" content/
+npx quartz sync -m "${1:-update notes}"
