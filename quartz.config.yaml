@@ -161,6 +161,10 @@ plugins:
     enabled: true
   - source: "@quartz-community/explorer"
     enabled: true
+    options:
+      # open by default: with only 5 folders, a collapsed tree hides the
+      # whole site behind five clicks on first visit
+      folderDefaultState: open
     layout:
       position: left
       priority: 50
