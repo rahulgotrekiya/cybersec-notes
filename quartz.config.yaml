@@ -147,8 +147,10 @@ plugins:
     enabled: true
   - source: "@quartz-community/og-image"
     enabled: true
+  # off: no custom domain. It derived CNAME=rahulgotrekiya.github.io from
+  # baseUrl, dropping the /cybersec-notes subpath - wrong for a project site.
   - source: "@quartz-community/cname"
-    enabled: true
+    enabled: false
   - source: "@quartz-community/canvas-page"
     enabled: true
   - source: "@quartz-community/content-page"

@@ -8,5 +8,7 @@ VAULT="/mnt/work/personal/Obsidian Vault/Study/Cyber Security"
 [ -d "$VAULT" ] || { echo "vault not found: $VAULT" >&2; exit 1; }
 
 cd "$(dirname "$0")"
-rsync -a --delete "$VAULT/" content/
+# index.md is the site's homepage and lives only in this repo, not the vault,
+# so --delete must not sweep it away.
+rsync -a --delete --exclude=index.md "$VAULT/" content/
 npx quartz sync -m "${1:-update notes}"
